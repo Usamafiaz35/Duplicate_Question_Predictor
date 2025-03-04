@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplicate Question Pairs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+        .result-box {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .duplicate {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .not-duplicate {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="mb-4">Duplicate Question Pairs Checker</h2>
+        <form method="post">
+            <div class="mb-3">
+                <input type="text" class="form-control" name="q1" placeholder="Enter Question 1" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" name="q2" placeholder="Enter Question 2" required>
+            </div>
+            <button type="submit" class="btn btn-custom">Find</button>
+        </form>
+
+        {% if result %}
+            <div class="result-box {% if result == 'Duplicate' %}duplicate{% else %}not-duplicate{% endif %}">
+                {{ result }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
